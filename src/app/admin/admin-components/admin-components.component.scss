@@ -1,0 +1,186 @@
+.container {
+  width: 800px;
+
+  #myProgress {
+    width: 30%;
+    margin-left: auto;
+    height: 40px;
+    line-height: 40px;
+    color: rgb(143, 10, 10);
+    background-color: rgb(25, 25, 25);
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
+    margin-bottom: 10px;
+  }
+
+  form {
+    border: 1px solid rgb(25, 25, 25);
+    border-radius: 5px;
+    font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    width: 800px;
+
+    fieldset {
+      border: 0;
+
+      input,
+      select {
+        border-radius: 5px;
+        font-size: larger;
+        outline: rgb(25, 25, 25);
+      }
+    }
+
+    .account-info {
+      padding: 20px 20px 0 20px;
+
+      label {
+        color: rgb(25, 25, 25);
+        display: block;
+        font-weight: bold;
+        margin-bottom: 20px;
+
+        .select>select:active,
+        .select>select:focus {
+          background-color: darkblue;
+        }
+      }
+
+      input,
+      select {
+        background: #fff;
+        border: 1px solid rgb(25, 25, 25);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+        color: rgb(25, 25, 25);
+        padding: 10px;
+        margin-top: 6px;
+        width: 100%;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+    }
+
+    .img {
+      background-color: rgb(180, 6, 6);
+      border: 1px solid rgb(25, 25, 25);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+      color: rgb(25, 25, 25);
+      padding: 10px;
+      margin-top: 6px;
+      width: 100%;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .account-action {
+    background: #f0f0f2;
+    border-top: 1px solid #c6c7cc;
+    padding: 20px;
+
+    div {
+      margin-left: auto;
+      width: 200px;
+
+      button {
+        background-color: rgb(25, 25, 25);
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        padding: 20px 70px;
+        border-radius: 2px;
+
+      }
+    }
+  }
+
+  .head {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+
+    h2 {
+      font-size: 30px;
+      height: 37px;
+    }
+
+    button {
+      background-color: #191919;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        background-color: white;
+        color: #191919;
+        border: 1px solid #191919;
+      }
+    }
+  }
+
+  .row {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    box-shadow: 0 0 10px #191919;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    .image {
+      width: 90px;
+      height: 50px;
+      background-size: 100% 100%;
+    }
+
+    .info {
+      width: calc(100% - 90px);
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: 600;
+      width: 40%;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: 600;
+      width: 30%;
+    }
+
+    button {
+      background-size: cover;
+      border: 1px solid #191919;
+      outline: none;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+
+    }
+
+    .update {
+      background-image: url(../../../assets/images/refresh+reload+update+icon-1320191166843452904.png);
+    }
+
+    .delete {
+      background-image: url(../../../assets/images/international-paper-computer-icons-organization-delete-thumb.jpg);
+    }
+  }
+}

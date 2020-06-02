@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="header">
+    <h2>ВХІД ДО КАБІНЕТУ</h2>
+  </div>
+  <div class="registry">
+    <h3>ДЛЯ ВХОДУ ЗАПОВНІТЬ ПОЛЯ</h3>
+    <form (ngSubmit)= '!status ?signUp(signUpForm.value) :signIn(signUpForm.value)' [formGroup]='signUpForm'>
+      <label>Email
+        <input type="email" formControlName='email'>
+        <div *ngIf="signUpForm.controls.email.invalid && signUpForm.controls.email.touched">Некоректно введений Email</div>
+      </label>
+      <label>Password
+        <input type="password" formControlName='password'>
+        <div *ngIf="signUpForm.controls.password.invalid && signUpForm.controls.password.touched">Некоректно введений Password <p>Пароль має складатися з великої літери і хочаб з одної цифри</p></div>
+      </label>
+      <label *ngIf="!status">User Name
+        <input type="text" formControlName='userName'>
+        <div *ngIf="signUpForm.controls.userName.invalid && signUpForm.controls.userName.touched">Некоректно введений User Name</div>
+      </label>
+      
+      <button *ngIf="status"  [disabled]='signUpForm.controls.email.invalid && signUpForm.controls.password.invalid' type="submit">Увійти</button>
+      <button *ngIf="!status" [disabled]='!signUpForm.valid' type="submit">Зареєструватися</button>
+
+      <div class="change">
+          <button *ngIf="status" (click)="change()" type="button">Зареєструватися</button>
+      <button *ngIf="!status" (click)="change()" type="button">Я вже маю аккаунт</button>
+      </div>
+    </form>
+  </div>
+</div>

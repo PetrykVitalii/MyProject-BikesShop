@@ -1,0 +1,311 @@
+header {
+  width: 100%;
+
+  .moveMenu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 83px;
+    top: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    height: 83px;
+    position: relative;
+    width: 1200px;
+  }
+
+  .logo {
+    padding-top: 18px;
+  }
+
+  .menu {
+    line-height: 83px;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    height: 83px;
+
+    ol {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(25, 25, 25);
+      cursor: pointer;
+    }
+
+    li {
+      list-style: none;
+      outline: none;
+
+      >a {
+        padding: 33px 12px;
+      }
+
+      ul {
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: 80px;
+        left: 5px;
+        background-color: rgb(25, 25, 25);
+        color: white;
+        flex-wrap: wrap;
+        text-align: center;
+        line-height: normal;
+      }
+
+      li {
+        border: 1px solid rgb(70, 70, 70);
+        width: 14.285714%;
+        font-size: 12px;
+        height: 80px;
+        line-height: 80px;
+
+      }
+
+      li:hover {
+        background-color: rgb(217, 19, 24);
+      }
+    }
+
+    li:hover a {
+      color: white;
+    }
+
+    li:hover {
+      background-color: rgb(25, 25, 25);
+      color: white;
+    }
+
+    li:hover ul {
+      display: flex;
+    }
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .back {
+    margin-top: 83px;
+    width: 100%;
+    background-color: rgb(25, 25, 25);
+    height: 35px;
+
+    ol {
+      list-style: none;
+      display: flex;
+      text-align: center;
+      height: 100%;
+    }
+
+    li {
+      padding: 10px 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      text-transform: capitalize;
+      font-size: 15px;
+    }
+
+
+  }
+}
+
+@media screen and (max-width:1200px) {
+  header {
+    .wrap {
+      width: 900px;
+
+      .logo {
+        padding-left: 10px;
+      }
+
+      .menu {
+        font-size: 14px;
+
+        li {
+          li {
+            height: 60px;
+            font-size: 10px;
+            line-height: 60px;
+
+            a {
+              font-size: 10px;
+
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+@media screen and (max-width:900px) {
+  header {
+    .wrap {
+      width: 720px;
+
+      .logo {
+        padding-top: 25px;
+      }
+
+      img {
+        width: 130px;
+        height: auto;
+      }
+
+      .menu {
+        font-size: 14px;
+        padding-right: 10px;
+
+        li {
+          li {
+            height: 54px;
+            font-size: 8px;
+            line-height: 54px;
+
+            a {
+              padding: 0;
+              font-size: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:720px) and (min-width:577px) {
+  header {
+    .wrap {
+      width: 500px;
+
+      .logo {
+        padding: 28px 10px 0 0;
+      }
+
+      img {
+        width: 100px;
+        height: auto;
+      }
+
+      .menu {
+        font-size: 11px;
+
+        li {
+          li {
+            height: 54px;
+            line-height: 54px;
+
+            a {
+              font-size: 6px;
+            }
+          }
+        }
+      }
+    }
+
+    .back {
+      a {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:576px) {
+  header {
+    .wrap {
+      width: 100%;
+
+      .menu {
+        font-size: 14px;
+        padding-right: 0;
+
+        ol {
+          &:hover>li {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+            height: 50px;
+            background-color: rgb(25, 25, 25);
+          }
+
+          &:hover>li:nth-child(2) {
+            margin-top: 28px;
+          }
+
+          &:hover>li a {
+            color: white;
+            padding: 0 10px;
+          }
+
+          &:hover {
+            display: flex;
+            flex-direction: column;
+          }
+
+          &:hover .burger {
+            display: flex;
+          }
+
+          li {
+            display: none;
+          }
+
+          #burger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 40px;
+            height: 30px;
+            margin: 25px 0 0 auto;
+            background-color: white;
+            cursor: pointer;
+
+            &:hover {
+              background-color: white;
+            }
+
+            span {
+              width: 30px;
+              height: 3px;
+              background-color: rgb(25, 25, 25);
+            }
+          }
+        }
+      }
+    }
+
+    .back {
+      li {
+        padding: 10px;
+      }
+
+      a {
+        font-size: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<header>
+  <div class="moveMenu">
+    <div class="wrap">
+      <div class="logo">
+        <a [routerLink]="[ '/home']">
+          <img src="../../../assets/images/logo.png" alt="CUBE">
+        </a>
+      </div>
+      <div class="menu">
+        <ol>
+          <li id="burger" class="burger"><span></span><span></span><span></span></li>
+          <li><a [routerLink]="[ '/products','bikes','all']">Велосипеди</a>
+            <ul>
+              <li><a [routerLink]="[ '/products','bikes','doubleDepreciation']">Двоамортизаційні</a></li>
+              <li><a [routerLink]="[ '/products','bikes','Hardtails']">Хардтейли</a></li>
+              <li><a [routerLink]="[ '/products','bikes','Road']">Дорожні</a></li>
+              <li><a [routerLink]="[ '/products','bikes','Tourist']">Туристичні</a></li>
+              <li><a [routerLink]="[ '/products','bikes','Electro']">Електро</a></li>
+              <li><a [routerLink]="[ '/products','bikes','female']">Жіночі</a></li>
+              <li><a [routerLink]="[ '/products','bikes','children']">Дитячі</a></li>
+              <li><a [routerLink]="[ '/products','bikes','triathlon']">Тріатлон</a></li>
+            </ul>
+          </li>
+          <li><a [routerLink]="[ '/products','components','all']">Компоненти</a>
+            <ul>
+              <li><a [routerLink]="[ '/products','components','bicyclebBags' ]">Велосумки</a></li>
+              <li><a [routerLink]="[ '/products','components','lights' ]">Ліхтарі</a></li>
+              <li><a [routerLink]="[ '/products','components','bicycleComputer' ]">Велокомп'ютер</a></li>
+              <li><a [routerLink]="[ '/products','components','pumps' ]">Насоси</a></li>
+              <li><a [routerLink]="[ '/products','components','saddle' ]">Сідло</a></li>
+              <li><a [routerLink]="[ '/products','components','grips' ]">Гріпси</a></li>
+              <li><a [routerLink]="[ '/products','components','bicycleBottle' ]">Велофляга</a></li>
+              <li><a [routerLink]="[ '/products','components','bicycleWing' ]">Велокрила</a></li>
+              <li><a [routerLink]="[ '/products','components','bootRack' ]">Велобагажник</a></li>
+              <li><a [routerLink]="[ '/products','components','bicycleBasket' ]">Велокошик</a></li>
+              <li><a [routerLink]="[ '/products','components','footrest' ]">Підніжка</a></li>
+              <li><a [routerLink]="[ '/products','components','tires' ]">Шини</a></li>
+              <li><a [routerLink]="[ '/products','components','frameProtection' ]">Захист рами</a></li>
+              <li><a [routerLink]="[ '/products','components','bells' ]">Дзвоники</a></li>
+              <li><a [routerLink]="[ '/products','components','pedals' ]">Педалі</a></li>
+              <li><a [routerLink]="[ '/products','components','brakePads' ]">Гальмівні колодки</a></li>
+              <li><a [routerLink]="[ '/products','components','bicycleLock' ]">Велозамок</a></li>
+              <li><a [routerLink]="[ '/products','components','chain' ]">Ланцюг</a></li>
+              <li><a [routerLink]="[ '/products','components','camera' ]">Камера</a></li>
+            </ul>
+          </li>
+          <li><a [routerLink]="[ '/basket']">Кошик</a></li>
+          <ng-container *ngIf="user; else elseTemplate">
+            <li *ngIf="user.role !== 'admin'"><a [routerLink]="[ '/order']">{{user.name}}</a></li>
+            <li *ngIf="user.role == 'admin'"><a [routerLink]="[ '/admin']">Адмінка</a></li>
+            <li (click)="logOut()"><a>Вихід</a></li>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <li><a [routerLink]="[ '/sign']">Вхід</a></li>
+          </ng-template>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="back">
+    <ol>
+      <li><a [routerLink]="[ '/home']">home</a></li>
+      <li *ngIf="category"><a [routerLink]="[ '/products',category,'all']">{{category}}</a></li>
+      <li *ngIf="type && type !== 'all'"><a [routerLink]="[ '/products',category,type]">{{type}}</a></li>
+      <li *ngIf="product"><a>{{product}}</a></li>
+    </ol>
+  </div>
+</header>

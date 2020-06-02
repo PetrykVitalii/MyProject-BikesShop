@@ -1,0 +1,59 @@
+<div class="container">
+  <ng-container *ngIf="products.length > 0; else elseTemplate">
+    <div class="left">
+      <div class="row" *ngFor="let prod of products; let i=index">
+        <div class="image" [style.backgroundImage]="'url(' + prod.image + ')'"></div>
+        <div class="info">
+          <div class="name">{{prod.nameEN}}</div>
+          <div class="price">{{prod.buyCount}}</div>
+          <div class="price">{{prod.price}}.00</div>
+          <button (click)="delete(i)" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <form (ngSubmit)='buy(createOrder.value)' [formGroup]='createOrder'>
+        <fieldset class="account-info">
+          <label>
+            Електронна пошта
+            <input formControlName="email" type="text">
+          </label>
+          <label>
+            Ім'я
+            <input formControlName="name" type="text">
+          </label>
+          <label>
+            Прізвище
+            <input formControlName="lastName" type="text">
+          </label><label>
+            Мобільний телефон
+            <input formControlName="phone" prefix="+38" mask="(000)000-00-00"  type="text">
+          </label>
+          <label>
+            Область
+            <input formControlName="region" type="text">
+          </label>
+          <label>
+            Місто
+            <input formControlName="city" type="text">
+          </label>
+          <label>
+            Відділення нової почти
+            <input formControlName="branch" type="text">
+          </label>
+        </fieldset>
+        <div class="total">До сплати: {{total}}.00 €
+          <button [disabled]='!createOrder.valid' type="submit">Купити</button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="empty">
+      <h2>Кошик порожній</h2>
+      <div>Переглянути товари <span><a [routerLink]="[ '/products','bikes','all']">Велосипеди</a></span><span><a [routerLink]="[ '/products','components','all']">Компоненти</a></span></div>
+    </div>
+  </ng-template>
+  
+  
+</div>

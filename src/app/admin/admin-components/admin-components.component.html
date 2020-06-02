@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="head">
+    <ng-container *ngIf="status; else elseTemplate">
+      <h2>Компоненти:</h2>
+      <button (click)="switch()">Добавити товар</button>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <h2>Добавити товар:</h2>
+      <button (click)="switch()">Перелік товарів</button>
+    </ng-template>
+  </div>
+
+  <div class="row" [style.display]="status ?'flex' :'none'" *ngFor="let prod of products|sort:'data':true:100; let i=index">
+    <div class="image" [style.backgroundImage]="'url(' + prod.image + ')'"></div>
+    <div class="info">
+      <div class="name">{{prod.nameEN}}</div>
+      <div class="price">{{prod.price}}.00</div>
+      <button class="update" (click)="update(prod)" type="button"></button>
+      <button class="delete" (click)="delete(prod.id)" type="button"></button>
+    </div>
+  </div>
+    <form [style.display]="!status ?'block' :'none'" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <fieldset class="account-info">
+        <label>
+          Назва
+          <input ngModel name="nameEN" type="text">
+        </label>
+        <label>
+          Тип
+          <select ngModel name="type">
+            <option value="bicyclebBags">Велосумки</option>
+            <option value="lights">Ліхтарі</option>
+            <option value="bicycleComputer">Велокомп'ютер</option>
+            <option value="pumps">Насоси</option>
+            <option value="saddle">Сідло</option>
+            <option value="grips">Гріпси</option>
+            <option value="bicycleBottle">Велофляга</option>
+            <option value="bicycleWing">Велокрила</option>
+            <option value="bootRack">Велобагажник</option>
+            <option value="bicycleBasket">Велокошик</option>
+            <option value="footrest">Підніжка</option>
+            <option value="tires">Шини</option>
+            <option value="frameProtection">Захист рами</option>
+            <option value="bells">Дзвоники</option>
+            <option value="pedals">Педалі</option>
+            <option value="brakePads">Гальмівні колодки</option>
+            <option value="bicycleLock">Велозамок</option>
+            <option value="chain">Ланцюг</option>
+            <option value="camera">Камера</option>
+          </select>
+        </label>
+        <label>
+          Ціна
+          <input ngModel name="price" type="number">
+        </label>
+        <label>
+          Кількість
+          <input ngModel name="count" type="number">
+        </label>
+        <label class="img">
+          Завантажити фото
+          <input (change)="uploadFile($event)" type="file" name="file" id="file" class="inputfile" />
+        </label>
+        <img *ngIf="urlImg" [src]="urlImg">
+      </fieldset>
+      <fieldset class="account-action">
+        <div>
+          <ng-container *ngIf="statusButton; else elseTemplate2">
+            <button type="button" (click)="updateProduct()">Оновити</button>
+          </ng-container>
+          <ng-template #elseTemplate2>
+            <button type="submit">Додати</button>
+          </ng-template>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  

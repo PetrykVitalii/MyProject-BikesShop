@@ -1,0 +1,91 @@
+<main>
+  <div class="image">
+    <ng-container *ngIf="category != 'bikes'; else elseTemplate">
+      <img src="../../../assets/images/big-velosipedyi-3835606456.jpg" alt="">
+
+    </ng-container>
+    <ng-template #elseTemplate>
+      <img src="../../../assets/images/big-komponenti-2992939044.jpg" alt="">
+
+    </ng-template>
+
+  </div>
+  <div class="filter">
+    <div *ngIf="category =='bikes'" class="top">
+      <div class="custom-select">
+        <select (change)="filterType($event.target.value)">
+          <option [selected]='type=="all"' value='all'>Велосипеди</option>
+          <option [selected]='type=="doubleDepreciation"' value='doubleDepreciation'>Двоамортизаційні</option>
+          <option [selected]='type=="Hardtails"' value='Hardtails'>Хардтейли</option>
+          <option [selected]='type=="Road"' value='Road'>Дорожні</option>
+          <option [selected]='type=="Tourist"' value='Tourist'>Туристичні</option>
+          <option [selected]='type=="Electro"' value='Electro'>Електро</option>
+          <option [selected]='type=="female"' value='female'>Жіночі</option>
+          <option [selected]='type=="children"' value='children'>Дитячі</option>
+          <option [selected]='type=="triathlon"' value='triathlon'>Тріатлон</option>
+        </select>
+      </div>
+      <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+      <button (click)="search()" type="button">Пошук</button>
+
+    </div>
+
+    <div *ngIf="category =='components'" class="top">
+      <div class="category">
+        <select (change)="filterType($event.target.value)">
+          <option [selected]='type=="all"' value='all'>Компоненти</option>
+          <option [selected]='type=="bicyclebBags"' value='bicyclebBags'>Велосумки</option>
+          <option [selected]='type=="lights"' value='lights'>Ліхтарі</option>
+          <option [selected]='type=="bicycleComputer"' value='bicycleComputer'>Велокомп'ютер</option>
+          <option [selected]='type=="pumps"' value='pumps'>Насоси</option>
+          <option [selected]='type=="saddle"' value='saddle'>Сідло</option>
+          <option [selected]='type=="grips"' value='grips'>Гріпси</option>
+          <option [selected]='type=="bicycleBottle"' value='bicycleBottle'>Велофляга</option>
+          <option [selected]='type=="bicycleWing"' value='bicycleWing'>Велокрила</option>
+          <option [selected]='type=="bootRack"' value='bootRack'>Велобагажник</option>
+          <option [selected]='type=="bicycleBasket"' value='bicycleBasket'>Велокошик</option>
+          <option [selected]='type=="footrest"' value='footrest'>Підніжка</option>
+          <option [selected]='type=="tires"' value='tires'>Шини</option>
+          <option [selected]='type=="frameProtection"' value='frameProtection'>Захист рами</option>
+          <option [selected]='type=="bells"' value='bells'>Дзвоники</option>
+          <option [selected]='type=="pedals"' value='pedals'>Педалі</option>
+          <option [selected]='type=="brakePads"' value='brakePads'>Гальмівні колодки</option>
+          <option [selected]='type=="bicycleLock"' value='bicycleLock'>Велозамок</option>
+          <option [selected]='type=="chain"' value='chain'>Ланцюг</option>
+          <option [selected]='type=="camera"' value='camera'>Камера</option>
+        </select>
+      </div>
+      <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+      <button (click)="search()" type="button">Пошук</button>
+    </div>
+    <div class="bottom">
+      <ol>
+        <li (click)="sort('data',false)">Нові</li>
+        <li (click)="sort('price',false)">Ціна</li>
+        <li (click)="sort('price',true)">Ціна</li>
+        <li (click)="sort('nameEN',false)">A-Z</li>
+        <li (click)="sort('nameEN',true)">Z-A</li>
+      </ol>
+    </div>
+  </div>
+  <div class="container">
+    <div class="block" *ngFor="let prod of productsArr|sort:sortArr:way:count; let i=index">
+      <a (click)="prodDet(prod)">
+        <h2>{{prod.nameEN}}</h2>
+        <div class="imageP" [style.backgroundImage]="'url(' + prod.image + ')'"></div>
+      </a>
+      <div class="total">
+        <div class="price">{{prod.price}}.00</div>
+        <ng-container *ngIf="prod.count == 0; else elseTemplate">
+          <div class="count">Очікуємо</div>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <div (click)="buy(prod)" class="buy">Купити</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="pagination" *ngIf="paginationStatus">
+    <button type="button" (click)="pagination()">Добавити 8 товарів</button>
+  </div>
+</main>

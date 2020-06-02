@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="components">
+    <ul>
+      <li><a [routerLink]="[ 'bike' ]" routerLinkActive="active">Bike</a></li>
+      <li><a [routerLink]="[ 'component' ]" routerLinkActive="active">Component</a></li>
+      <li><a [routerLink]="[ 'allOrder' ]" routerLinkActive="active">Order</a></li>
+    </ul>
+  </div>
+  <div class="product">
+    <router-outlet></router-outlet>
+  </div>
+</div>

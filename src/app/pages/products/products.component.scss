@@ -1,0 +1,282 @@
+main {
+  width: 100%;
+
+  .pagination {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      background-color: rgb(25, 25, 25);
+      color: white;
+      border: 2px solid white;
+      padding: 10px 20px;
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+      font-weight: 600;
+
+      &:hover {
+        background-color: white;
+        color: rgb(25, 25, 25);
+        border: 2px solid rgb(25, 25, 25);
+      }
+    }
+  }
+
+  .image {
+    width: calc(100vw - 10px);
+    background-color: rgb(25, 25, 25);
+
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .filter {
+    width: calc(100vw - 10px);
+  }
+
+  .top {
+    background-color: rgb(25, 25, 25);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+
+    button {
+      background-color: rgb(197, 6, 6);
+      padding: 10px 20px;
+      border: 1px solid rgb(25, 25, 25);
+      color: rgb(25, 25, 25);
+      outline: none;
+      font-weight: 600;
+      width: 20%;
+      cursor: pointer;
+    }
+
+    div,
+    ng5-slider {
+      width: 30%;
+      height: 50px;
+
+      select {
+        width: 100%;
+        height: 100%;
+        background-color: #989898;
+        color: white;
+        outline: none;
+        padding: 15px;
+
+        option {
+          outline: none;
+          background-color: #313030;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    background-color: rgb(226, 220, 220);
+    height: 40px;
+
+    ol {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: row;
+      height: 40px;
+      list-style: none;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    li {
+      font-size: 20px;
+      display: flex;
+      line-height: 40px;
+      cursor: pointer;
+
+      &:nth-child(even)::before {
+        content: "";
+        width: 40px;
+        height: 40px;
+        display: block;
+        background-image: url(../../../assets/images/arrow_down.png);
+        background-size: 100% 100%;
+      }
+
+      &:nth-child(odd)::before {
+        content: "";
+        width: 40px;
+        height: 40px;
+        display: block;
+        background-image: url(../../../assets/images/arrow_up.png);
+        background-size: 100% 100%;
+      }
+
+      &:first-child::before {
+        margin-right: 5px;
+        background-image: url(../../../assets/images/photoimg_1688426565.png);
+      }
+
+      &:hover {
+        color: #c50606;
+      }
+
+    }
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+
+    a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .block {
+      width: 270px;
+      height: 300px;
+      margin: 20px 20px 20px 0;
+      border: 5px solid #fff;
+      padding: 0 11px 10px;
+      text-align: center;
+
+      &:hover {
+        border-image: url(../../../assets/images/gif_bg.gif) 5 round;
+      }
+
+      .imageP {
+        width: 100%;
+        height: 150px;
+        background-size: 100% 100%;
+      }
+
+      h2 {
+        font-size: 18px;
+        line-height: 20px;
+        font-style: normal;
+        margin: 0 0 5px;
+        min-height: 40px;
+        color: rgb(25, 25, 25);
+        height: 60px;
+
+      }
+
+      .total {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .buy {
+          background-color: rgb(197, 6, 6);
+          cursor: pointer;
+
+          &:active {
+            background-color: white;
+            color: rgb(197, 6, 6);
+            border: 2px solid rgb(197, 6, 6);
+          }
+
+          a {
+            color: #191919;
+          }
+        }
+
+        .count {
+          color: white;
+          background-color: rgb(88, 87, 87);
+        }
+
+        div {
+          width: 48%;
+          height: 35px;
+          text-align: center;
+          line-height: 35px;
+          font-weight: bolder;
+          border: 1px solid rgb(119, 5, 5);
+
+          &:nth-child(1) {
+            background-color: rgb(197, 6, 6);
+            color: white;
+            margin-right: 4%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:800px) {
+  main {
+    .top {
+      height: auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px 0;
+
+      button {
+        width: 30%;
+      }
+
+      div,
+      ng5-slider {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1200px) {
+  main .container {
+    width: 890px;
+  }
+}
+
+@media screen and (max-width:900px) {
+  main .container {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width:610px) {
+  main {
+    .container {
+      width: 290px;
+
+      .block {
+        margin: 20px 0;
+      }
+    }
+    .bottom li {
+      font-size: 15px;
+    }
+  }
+}
+@media screen and (max-width:610px) {
+  main{
+    width: 100%;
+    .filter,.image{
+      width: 100%;
+    }
+    .container{
+      padding-left: 0;
+      .block{
+        margin: 10px auto 0;
+        h2{
+          height: 40px;
+        }
+      }
+    }
+  }
+}

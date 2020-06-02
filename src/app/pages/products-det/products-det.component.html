@@ -1,0 +1,98 @@
+<div class="line">
+  <div class="container">
+    <h2>{{product?.nameEN}}</h2>
+  </div>
+</div>
+<div class="container">
+  <div class="main">
+    <div class="image">
+      <img [src]="product?.image">
+    </div>
+    <div class="info">
+      <p class="sizeColor" *ngIf="category == 'bikes'">Колір: <span>{{product?.color}}</span></p>
+      <p class="sizeColor" *ngIf="category == 'bikes'">Розмір: <span>{{product?.size}}</span></p>
+      <div class="button">
+        <div>{{product?.price}}.00</div>
+        <ng-container *ngIf="product?.count !== 0; else elseTemplate">
+          <div class="buy" (click)="buy(product)">КУПИТИ</div>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <div class="count">ОЧІКУЄМО</div>
+        </ng-template>
+      </div>
+      <p class="curse">Розрахунок в грн., курс уточнюйте у представника</p>
+      <hr>
+      <p class="curse">Вам сподобалась продукція? Рекомендуйте друзям</p>
+      <div class="social">
+        <a href="#"><img src="../../../assets/images/linc-69-38x38.png" alt=""></a>
+        <a href="#"><img src="../../../assets/images/linc-70-38x38.png" alt=""></a>
+        <a href="#"><img src="../../../assets/images/twitter-icon.png" alt=""></a>
+        <a href="#"><img src="../../../assets/images/2111463.png" alt=""></a>
+        <a href="#"><img src="../../../assets/images/icon-linkedin.png" alt=""></a>
+      </div>
+    </div>
+  </div>
+  <div class="det" *ngIf="category =='bikes'">
+    <h2>ХАРАКТЕРИСТИКИ: {{product?.nameEN}}</h2>
+    <div>
+      <p> Розмір: </p>
+      <p>{{product?.size}}</p>
+    </div>
+    <div>
+      <p> Колір: </p>
+      <p>{{product?.color}}</p>
+    </div>
+    <div>
+      <p> Вилка: </p>
+      <p>{{product?.fork}}</p>
+    </div>
+    <div>
+      <p> Рульова колонка: </p>
+      <p>{{product?.steeringColumn}}</p>
+    </div>
+    <div>
+      <p> Шифтери: </p>
+      <p>{{product?.shifters}}</p>
+    </div>
+    <div>
+      <p> Система шатунів: </p>
+      <p>{{product?.connectingRodSystem}}</p>
+    </div>
+    <div>
+      <p> Гальмівна система: </p>
+      <p>{{product?.brake}}</p>
+    </div>
+    <div>
+      <p> Передній перемикач: </p>
+      <p>{{product?.frontSwitch}}</p>
+    </div>
+    <div>
+      <p> Задній перемикач: </p>
+      <p>{{product?.rearSwitch}}</p>
+    </div>
+    <div>
+      <p> Касета: </p>
+      <p>{{product?.cassette}}</p>
+    </div>
+    <div>
+      <p> Ланцюг: </p>
+      <p>{{product?.shain}}</p>
+    </div>
+    <div>
+      <p> Колеса: </p>
+      <p>{{product?.wheels}}</p>
+    </div>
+    <div>
+      <p> Покришки: </p>
+      <p>{{product?.col}}</p>
+    </div>
+    <div>
+      <p> Сідло: </p>
+      <p>{{product?.reinforcingPin}}</p>
+    </div>
+    <div>
+      <p> Хомут: </p>
+      <p>{{product?.collar}}</p>
+    </div>
+  </div>
+</div>

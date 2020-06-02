@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="head">
+    <ng-container *ngIf="status; else elseTemplate">
+      <h2>Велосипеди:</h2>
+      <button (click)="switch()">Добавити товар</button>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <h2>Добавити товар:</h2>
+      <button (click)="switch()">Перелік товарів</button>
+    </ng-template>
+  </div>
+
+  <div class="row" [style.display]="status ?'flex' :'none'" *ngFor="let prod of products|sort:'data':true:100; let i=index">
+    <div class="image" [style.backgroundImage]="'url(' + prod.image + ')'"></div>
+    <div class="info">
+      <div class="name">{{prod.nameEN}}</div>
+      <div class="price">{{prod.price}}.00</div>
+      <button class="update" (click)="update(prod)" type="button"></button>
+      <button class="delete" (click)="delete(prod.id)" type="button"></button>
+    </div>
+  </div>
+
+  <form [style.display]="!status ?'block' :'none'" (ngSubmit)="onSubmit(f)" #f=ngForm>
+    <fieldset class="account-info">
+      <label>
+        Назва
+        <input ngModel name="nameEN" type="text">
+      </label>
+      <label>
+        Тип
+        <select ngModel name="type">
+          <option value="doubleDepreciation">Двоамортизаційні</option>
+          <option value="Hardtails">Хардтейли</option>
+          <option value="Road">Дорожні</option>
+          <option value="Tourist">Туристичні</option>
+          <option value="Electro">Електро</option>
+          <option value="female">Жіночі</option>
+          <option value="children">Дитячі</option>
+          <option value="triathlon">Тріатлон</option>
+        </select>
+      </label>
+      <label>
+        Ціна
+        <input required pattern="/\d/" ngModel name="price" type="number">
+      </label>
+      <label>
+        Кількість
+        <input required pattern="/\d/" ngModel name="count" type="number">
+      </label>
+      <label>
+        Вага
+        <input required pattern="/\d/" ngModel name="weight" type="number">
+      </label>
+      <label>
+        Розмір
+        <input ngModel name="size" type="text">
+      </label>
+      <label>
+        Колір
+        <input ngModel name="color" type="text">
+      </label>
+      <label>
+        Вилка
+        <input ngModel name="fork" type="text">
+      </label>
+      <label>
+        Рульова колонка
+        <input ngModel name="steeringColumn" type="text">
+      </label>
+      <label>
+        Шифтери
+        <input ngModel name="shifters" type="text">
+      </label>
+      <label>
+        Система шатунів
+        <input ngModel name="connectingRodSystem" type="text">
+      </label>
+      <label>
+        Гальмівна система
+        <input ngModel name="brake" type="text">
+      </label>
+      <label>
+        Передній перемикач
+        <input ngModel name="frontSwitch" type="text">
+      </label>
+      <label>
+        Задній перемикач
+        <input ngModel name="rearSwitch" type="text">
+      </label>
+      <label>
+        Касета
+        <input ngModel name="cassette" type="text">
+      </label>
+      <label>
+        Ланцюг
+        <input ngModel name="shain" type="text">
+      </label>
+      <label>
+        Колеса
+        <input ngModel name="wheels" type="text">
+      </label>
+      <label>
+        Покришки
+        <input ngModel name="col" type="text">
+      </label>
+      <label>
+        Сідло
+        <input ngModel name="reinforcingPin" type="text">
+      </label>
+      <label>
+        Хомут
+        <input ngModel name="collar" type="text">
+      </label>
+      <label class="img">
+        Завантажити фото
+        <input (change)="uploadFile($event)" type="file" name="file" id="file" class="inputfile" />
+      </label>
+      <img *ngIf="urlImg" [src]="urlImg">
+    </fieldset>
+    <fieldset class="account-action">
+      <div>
+        <ng-container *ngIf="statusButton; else elseTemplate2">
+          <button type="button" (click)="updateProduct()">Оновити</button>
+        </ng-container>
+        <ng-template #elseTemplate2>
+          <button type="submit">Додати</button>
+        </ng-template>
+      </div>
+    </fieldset>
+  </form>
+</div>

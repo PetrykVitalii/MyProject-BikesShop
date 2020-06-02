@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "myshop-1c13b": {
+      "hosting": {
+        "myShop": [
+          "myshop-1c13b"
+        ]
+      }
+    }
+  }
+}

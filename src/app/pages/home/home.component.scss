@@ -1,0 +1,122 @@
+main {
+  width: 100%;
+  padding-bottom: 20px;
+
+  .image {
+    width: calc(100vw - 10px);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  article {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+
+    p {
+      font-size: 16px;
+
+      .red {
+        color: rgb(116, 4, 4);
+        font-weight: bolder;
+        font-size: 20px;
+      }
+
+      a {
+        color: #d91318;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .product {
+    overflow: hidden;
+    margin: 46px auto 36px;
+    display: flex;
+    justify-content: space-around;
+
+    a {
+      display: flex;
+      text-decoration: none;
+
+      .img {
+        width: 177px;
+        height: 177px;
+        position: relative;
+        display: block;
+
+        .img_bg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: block;
+          width: 177px;
+          height: 177px;
+          z-index: 2;
+          border-radius: 50%;
+          box-shadow: inset 6px -3px 0 2px #df363a;
+          transition: 0.7s;
+
+          &:hover {
+            transform: rotate(180deg);
+            transition: 0.7s;
+          }
+        }
+
+
+        img {
+          position: absolute;
+          display: block;
+          left: 0;
+          top: 0;
+        }
+      }
+
+      .txt {
+        width: 111px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: bold;
+        font-family: 'PT Sans', sans-serif;
+        text-transform: uppercase;
+        padding: 75px 0 0 16px;
+        color: rgb(25, 25, 25);
+      }
+    }
+  }
+
+  h2 {
+    color: rgb(25, 25, 25);
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 15px 0 15px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  main {
+    h2 {
+      font-size: 29px;
+    }
+
+    .product {
+      flex-direction: column;
+      justify-content: center;
+
+      a {
+        justify-content: center;
+
+        &:first-child {
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+}

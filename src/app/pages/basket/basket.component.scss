@@ -1,0 +1,289 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+
+  .left {
+    width: 45%;
+    padding: 0 0 0 20px;
+
+    .row {
+      margin-top: 30px;
+      width: 100%;
+      display: flex;
+      box-shadow: 0 0 10px #191919;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .image {
+      width: 90px;
+      height: 50px;
+      background-size: 100% 100%;
+    }
+
+    .info {
+      width: calc(100% - 90px);
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: 600;
+      width: 40%;
+      margin-left: 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: 600;
+      width: 22%;
+    }
+
+    button {
+      background-image: url(../../../assets/images/international-paper-computer-icons-organization-delete-thumb.jpg);
+      background-size: cover;
+      border: 1px solid #191919;
+      outline: none;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  .right {
+    width: 45%;
+    padding: 0 20px 0 0;
+
+    .total {
+      font-size: 20px;
+      color: #191919;
+      text-align: right;
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-weight: 600;
+
+      button {
+        background-color: rgb(197, 6, 6);
+        cursor: pointer;
+        margin-left: 20px;
+        padding: 10px 20px;
+        color: #191919;
+        font-size: 20px;
+      }
+    }
+
+    form {
+      border: 1px solid rgb(25, 25, 25);
+      margin-top: 30px;
+      border-radius: 5px;
+      font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      width: 100%;
+
+      fieldset {
+        border: 0;
+
+        input,
+        select {
+          border-radius: 5px;
+          font-size: larger;
+          outline: rgb(25, 25, 25);
+        }
+      }
+
+      .account-info {
+        padding: 20px 20px 0 20px;
+
+        label {
+          color: rgb(25, 25, 25);
+          display: block;
+          font-weight: bold;
+          margin-bottom: 20px;
+
+          .select>select:active,
+          .select>select:focus {
+            background-color: darkblue;
+          }
+        }
+
+        input,
+        select {
+          background: #fff;
+          border: 1px solid rgb(25, 25, 25);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+          color: rgb(25, 25, 25);
+          padding: 10px;
+          margin-top: 6px;
+          width: 100%;
+        }
+
+        input.ng-touched.ng-invalid {
+          border: 2px solid rgb(145, 6, 6);
+        }
+      }
+
+      .img {
+        background-color: rgb(180, 6, 6);
+        border: 1px solid rgb(25, 25, 25);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+        color: rgb(25, 25, 25);
+        padding: 10px;
+        margin-top: 6px;
+        width: 100%;
+        border-radius: 5px;
+        text-align: center;
+      }
+    }
+
+    .account-action {
+      background: #f0f0f2;
+      border-top: 1px solid #c6c7cc;
+      padding: 20px;
+
+      div {
+        margin-left: auto;
+        width: 200px;
+
+        button {
+          background-color: rgb(25, 25, 25);
+          border: 0;
+          color: #fff;
+          cursor: pointer;
+          font-weight: bold;
+          padding: 20px 70px;
+          border-radius: 2px;
+
+        }
+      }
+    }
+  }
+
+  .empty {
+    text-align: center;
+    margin: 20px auto;
+    position: relative;
+    font-size: 30px;
+
+    &::before {
+      content: " ";
+      background-image: url(../../../assets/images/49686845-shopping-basket-icon-on-white-background-vector-illustration-.jpg);
+      width: 52px;
+      height: 52px;
+      background-size: 100% 100%;
+      position: absolute;
+      left: 0px;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      font-style: italic;
+      color: rgb(184, 184, 184);
+      text-decoration: underline;
+    }
+
+    span {
+      margin-right: 10px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+
+}
+
+@media screen and (max-width:1200px) {
+  .container {
+    .left {
+      width: 45%;
+    }
+
+    .right {
+      width: 45%;
+    }
+  }
+}
+
+@media screen and (max-width:1000px) and (min-width:740px) {
+  .container {
+    .left {
+      width: 55%;
+
+      .name {
+        font-size: 12px;
+      }
+
+      .price {
+        font-size: 14px;
+      }
+    }
+
+    .right {
+      width: 43%;
+
+      .total {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:740px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .right,
+    .left {
+      width: 80%;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width:590px) {
+  .container {
+    .left {
+      .row {
+        padding: 10px;
+      }
+
+      .name {
+        font-size: 11px;
+        width: 40%;
+      }
+
+      .price {
+        font-size: 14px;
+      }
+    }
+
+    .right {
+      .total {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:450px) {
+  .container {
+
+    .left,
+    .right {
+      width: 95%;
+    }
+  }
+}

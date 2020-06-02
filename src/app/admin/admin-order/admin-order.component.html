@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="title">Замовлення</h2>
+    <div *ngFor="let order of orders" class="block">
+      <div class="bigWrap">
+        <div class="wrap">
+          <div class="products" *ngFor="let prod of order.products">
+            <div class="image" [style.backgroundImage]="'url(' + prod.image + ')'"></div>
+            <div class="info">
+              <div class="name">{{prod.nameEN}}</div>
+              <div class="price">{{prod.buyCount}}</div>
+              <div class="price">{{prod.price}}.00</div>
+            </div>
+          </div>
+        </div>
+        <div class="send">
+          <div>Доставка:</div>
+          <div class="region">Область: {{order.region}}</div>
+          <div class="city">Місто: {{order.city}}</div>
+          <div class="branch">Віділення нової пошти: {{order.branch}}</div>
+          <div class="email">Email: {{order.email}}</div>
+          <div class="top"> {{ order.data }}</div>
+        </div>
+      </div>
+      <div class="total"><span>Разом до сплати:</span>{{order.totalPrice}}.00 Євро</div>
+    </div>
+</div>
